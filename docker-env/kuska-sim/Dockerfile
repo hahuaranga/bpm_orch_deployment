@@ -2,19 +2,19 @@ FROM tomcat:jre17-temurin
 
 #ENV JAVA_OPTS="-Djavax.xml.xpath.XPathFactory:http://java.sun.com/jaxp/xpath/dom=net.sf.saxon.xpath.XPathFactoryImpl"
 
-#ENV CATALINA_OPTS="-Xmx512m -Dspring.config.location=classpath:/application.properties,/opt/kuska/cfg/application.properties -Dlogging.config=/opt/kuska/cfg/logback-spring.xml -Dcom.sun.management.jmxremote=true  -Dcom.sun.management.jmxremote.port=9999  -Dcom.sun.management.jmxremote.rmi.port=9999 -Dcom.sun.management.jmxremote.ssl=false -Dcom.sun.management.jmxremote.authenticate=false" \
-#    TOMCAT_HOME=/usr/local/tomcat
+ENV CATALINA_OPTS="-Xmx512m -Dspring.config.location=classpath:/application.properties,/opt/kuska/cfg/application.properties -Dlogging.config=/opt/kuska/cfg/logback-spring.xml" \
+    TOMCAT_HOME=/usr/local/tomcat
 
 # add certificate
-#COPY certificates/ /cert
+COPY certificates/ /cert
 
 #RUN keytool -import -trustcacerts -alias CAIndra -file /cert/certificadoRaiz.crt -keystore /usr/lib/jvm/java-1.8-openjdk/jre/lib/security/cacerts -storepass changeit -noprompt
 
 # Copy Deploys
-#COPY deployments/*.war $TOMCAT_HOME/webapps/
+COPY deployments/*.war $TOMCAT_HOME/webapps/
 
 # Copy properties
-#COPY properties/* /opt/kuska/cfg/
+COPY properties/* /opt/kuska/cfg/
 
 #Copy Config
 COPY tomcat/tomcat-users.xml $TOMCAT_HOME/conf/tomcat-users.xml
