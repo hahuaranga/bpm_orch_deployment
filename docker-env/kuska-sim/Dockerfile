@@ -8,7 +8,7 @@ ENV CATALINA_OPTS="-Xmx512m -Dspring.config.location=classpath:/application.prop
 #RUN keytool -import -trustcacerts -alias CAIndra -file /cert/certificadoRaiz.crt -keystore /usr/lib/jvm/java-1.8-openjdk/jre/lib/security/cacerts -storepass changeit -noprompt
 
 # Copy Deploys
-COPY deployments/*.war $TOMCAT_HOME/webapps/
+#COPY deployments/*.war $TOMCAT_HOME/webapps/
 
 # Copy properties
 COPY properties/* /opt/kuska/cfg/
