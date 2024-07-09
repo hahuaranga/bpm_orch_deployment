@@ -5,9 +5,6 @@ FROM tomcat:jre17-temurin
 ENV CATALINA_OPTS="-Xmx512m -Dspring.config.location=classpath:/application.properties,/opt/kuska/cfg/application.properties -Dlogging.config=/opt/kuska/cfg/logback-spring.xml" \
     TOMCAT_HOME=/usr/local/tomcat
 
-# add certificate
-#COPY certificates/ /cert
-
 #RUN keytool -import -trustcacerts -alias CAIndra -file /cert/certificadoRaiz.crt -keystore /usr/lib/jvm/java-1.8-openjdk/jre/lib/security/cacerts -storepass changeit -noprompt
 
 # Copy Deploys
