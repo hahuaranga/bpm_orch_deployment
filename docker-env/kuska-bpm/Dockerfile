@@ -28,27 +28,27 @@ COPY tomcat/server.xml $TOMCAT_HOME/conf/server.xml
 COPY tomcat/web.xml $TOMCAT_HOME/webapps/bonita/WEB-INF/web.xml
 
 #Instalar la librería nativa libtcnative-1 de Tomcat para habilitar APR 
-RUN apk update && \
-    apk add --no-cache \
-    build-base \
-    apr-dev \
-    apr-util-dev \
-    openssl-dev \
-    libressl-dev \
-    wget \
-    tar
+#RUN apk update && \
+#    apk add --no-cache \
+#    build-base \
+#    apr-dev \
+#    apr-util-dev \
+#    openssl-dev \
+#    libressl-dev \
+#    wget \
+#    tar
 
-RUN wget http://archive.apache.org/dist/tomcat/tomcat-connectors/native/1.2.30/source/tomcat-native-1.2.30-src.tar.gz && \
-    tar xzf tomcat-native-1.2.30-src.tar.gz && \
-    cd tomcat-native-1.2.30-src/native && \
-    ./configure --with-apr=/usr/bin/apr-1-config --with-java-home=/usr/lib/jvm/java-11-openjdk && \
-    make && \
-    make install && \
-    cd ../.. && \
-    rm -rf tomcat-native-1.2.30-src && \
-    rm tomcat-native-1.2.30-src.tar.gz
+#RUN wget http://archive.apache.org/dist/tomcat/tomcat-connectors/native/1.2.30/source/tomcat-native-1.2.30-src.tar.gz && \
+#    tar xzf tomcat-native-1.2.30-src.tar.gz && \
+#    cd tomcat-native-1.2.30-src/native && \
+#    ./configure --with-apr=/usr/bin/apr-1-config --with-java-home=/usr/lib/jvm/java-11-openjdk && \
+#    make && \
+#    make install && \
+#    cd ../.. && \
+#    rm -rf tomcat-native-1.2.30-src && \
+#    rm tomcat-native-1.2.30-src.tar.gz
 
-RUN apk del build-base wget tar
+#RUN apk del build-base wget tar
 
 # Establece variables de entorno necesarias
 ENV BONITA_HOME=/opt/bonita
