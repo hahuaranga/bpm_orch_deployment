@@ -4,6 +4,13 @@ ENV JAVA_OPTS="-Djavax.xml.xpath.XPathFactory:http://java.sun.com/jaxp/xpath/dom
 	CATALINA_OPTS="-Xmx512m -Dspring.config.location=classpath:/application.properties,/opt/kuska/cfg/application.properties -Dlogging.config=/opt/kuska/cfg/logback-spring.xml" \
     TOMCAT_HOME=/usr/local/tomcat
 
+# Instala las bibliotecas necesarias para APR y OpenSSL
+RUN apt-get update && apt-get install -y \
+    libapr1 \
+    libapr1-dev \
+    libtcnative-1 \
+    && apt-get clean
+
 # Copy properties
 COPY properties/* /opt/kuska/cfg/
 
