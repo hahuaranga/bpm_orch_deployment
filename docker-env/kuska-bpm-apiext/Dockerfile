@@ -2,8 +2,8 @@ FROM tomcat:jre17-temurin
 
 ENV JAVA_OPTS="-Djavax.xml.xpath.XPathFactory:http://java.sun.com/jaxp/xpath/dom=net.sf.saxon.xpath.XPathFactoryImpl"
 
-ENV CATALINA_OPTS="-Xmx512m -Dspring.config.location=classpath:/application.properties,/opt/srom/cfg/application.properties -Dlogging.config=/opt/srom/cfg/logback-spring.xml" \
-    TOMCAT_HOME=/usr/local/tomcat
+ENV CATALINA_OPTS="-Xmx512m -Dspring.config.location=classpath:/application.properties,/opt/srom/cfg/application.properties -Dlogging.config=/opt/srom/cfg/logback-spring.xml"
+ENV TOMCAT_HOME=/usr/local/tomcat
 
 # Copy properties
 COPY properties/* /opt/kuska/cfg/
