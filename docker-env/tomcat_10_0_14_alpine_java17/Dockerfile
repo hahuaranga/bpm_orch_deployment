@@ -43,6 +43,8 @@ RUN tar -xzvf /usr/local/tomcat/bin/tomcat-native.tar.gz -C /tmp \
 RUN apk del build-base libtool autoconf automake bash tar \
     && rm -rf /var/cache/apk/* /tmp/*
 
+ENV LD_LIBRARY_PATH /usr/local/apr/lib
+
 # Exponer el puerto 8080
 EXPOSE 8080
 
