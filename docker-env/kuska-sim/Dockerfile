@@ -1,17 +1,14 @@
 FROM tomcat:jre17-temurin
 
-#ENV JAVA_OPTS="-Djavax.xml.xpath.XPathFactory:http://java.sun.com/jaxp/xpath/dom=net.sf.saxon.xpath.XPathFactoryImpl"
-
-#ENV CATALINA_OPTS="-Xmx512m -Dspring.config.location=classpath:/application.properties,/opt/kuska/cfg/application.properties -Dlogging.config=/opt/kuska/cfg/logback-spring.xml" \
-#    TOMCAT_HOME=/usr/local/tomcat
-
-#RUN keytool -import -trustcacerts -alias CAIndra -file /cert/certificadoRaiz.crt -keystore /usr/lib/jvm/java-1.8-openjdk/jre/lib/security/cacerts -storepass changeit -noprompt
-
-# Copy Deploys
-#COPY deployments/*.war $TOMCAT_HOME/webapps/
+ENV JAVA_OPTS="-Djavax.xml.xpath.XPathFactory:http://java.sun.com/jaxp/xpath/dom=net.sf.saxon.xpath.XPathFactoryImpl"
+ENV CATALINA_OPTS="-Xms512m -Xmx1024m -XX:+UseG1GC -Djava.awt.headless=true -Dspring.config.location=classpath:/application.properties,/opt/kuska/cfg/application.properties -Dlogging.config=/opt/kuska/cfg/logback-spring.xml"
+ENV TOMCAT_HOME=/usr/local/tomcat
 
 # Copy properties
-#COPY properties/* /opt/kuska/cfg/
+COPY properties/* /opt/kuska/cfg/
+
+# Copy Deploys
+COPY deployments/*.war $TOMCAT_HOME/webapps/
 
 #Copy Config
 COPY tomcat/tomcat-users.xml $TOMCAT_HOME/conf/tomcat-users.xml
