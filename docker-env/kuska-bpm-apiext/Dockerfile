@@ -8,7 +8,7 @@ ENV TOMCAT_HOME=/usr/local/tomcat
 COPY properties/* /opt/kuska/cfg/
 
 # Copy Deploys
-COPY deployments/*.war $TOMCAT_HOME/webapps/
+#COPY deployments/*.war $TOMCAT_HOME/webapps/
 
 #Copy Config
 COPY tomcat/tomcat-users.xml $TOMCAT_HOME/conf/tomcat-users.xml
