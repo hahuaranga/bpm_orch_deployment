@@ -10,12 +10,10 @@ COPY properties/* /opt/kuska/cfg/
 # Copy Deploys
 COPY deployments/*.war $TOMCAT_HOME/webapps/
 
-#Copy Config
-#COPY tomcat/tomcat-users.xml $TOMCAT_HOME/conf/tomcat-users.xml
-#COPY tomcat/context.xml $TOMCAT_HOME/conf/context.xml
-#COPY tomcat/server.xml $TOMCAT_HOME/conf/server.xml
-#COPY tomcat/webappscontext/context.xml $TOMCAT_HOME/webapps/manager/META-INF
-#COPY tomcat/webappscontext/context.xml $TOMCAT_HOME/webapps/host-manager/META-INF
+Copy Config
+COPY tomcat/tomcat-users.xml $TOMCAT_HOME/conf/tomcat-users.xml
+COPY tomcat/context.xml $TOMCAT_HOME/conf/context.xml
+COPY tomcat/server.xml $TOMCAT_HOME/conf/server.xml
 
 EXPOSE 8080 8443
 
