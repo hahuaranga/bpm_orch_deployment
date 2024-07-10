@@ -11,6 +11,9 @@ RUN apt-get update && apt-get install -y \
     libtcnative-1 \
     && apt-get clean
 
+# Establecer LD_LIBRARY_PATH
+ENV LD_LIBRARY_PATH /usr/lib:/usr/lib/x86_64-linux-gnu
+
 # Copy properties
 COPY properties/* /opt/kuska/cfg/
 
