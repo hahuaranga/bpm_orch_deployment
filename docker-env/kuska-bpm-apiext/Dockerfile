@@ -12,7 +12,7 @@ RUN apt-get update && apt-get install -y \
     && apt-get clean
 
 # Establecer LD_LIBRARY_PATH
-#ENV LD_LIBRARY_PATH /usr/lib:/usr/lib/x86_64-linux-gnu
+ENV LD_LIBRARY_PATH /usr/lib:/usr/lib/x86_64-linux-gnu
 
 # add certificate
 COPY cert/ /cert
