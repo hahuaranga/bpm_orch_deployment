@@ -13,6 +13,36 @@ RUN wget https://dlcdn.apache.org/tomcat/tomcat-10/v10.1.25/bin/apache-tomcat-10
 ENV CATALINA_HOME /usr/local/tomcat
 ENV PATH $CATALINA_HOME/bin:$PATH
 
+# Actualizar el índice de paquetes e instalar dependencias
+RUN apk update && apk add --no-cache build-base wget
+
+# Instalar las dependencias necesarias para compilar
+RUN apk update && apk add --no-cache \
+    build-base \
+    apr-dev \
+    openssl-dev \
+    libtool \
+    autoconf \
+    automake \
+    bash \
+    tar
+    
+# Establecer JAVA_HOME
+ENV JAVA_HOME /usr/lib/jvm/java-17-openjdk
+ENV PATH $JAVA_HOME/bin:$PATH    
+    
+# Extraer y compilar libtcnative-1
+RUN tar -xzvf /usr/local/tomcat/bin/tomcat-native.tar.gz -C /tmp \
+    && cd /tmp/tomcat-native-* \
+    && cd native \
+    && ./configure --with-apr=/usr/bin/apr-1-config --with-java-home=$JAVA_HOME \
+    && make \
+    && make install
+
+# Limpiar archivos temporales y paquetes innecesarios
+RUN apk del build-base libtool autoconf automake bash tar \
+    && rm -rf /var/cache/apk/* /tmp/*
+
 # Exponer el puerto 8080
 EXPOSE 8080
 
