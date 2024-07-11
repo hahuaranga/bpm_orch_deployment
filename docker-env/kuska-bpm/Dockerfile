@@ -14,10 +14,8 @@ ENV TENANT_PASSWORD=secret
 ENV PLATFORM_LOGIN=pfadmin
 ENV PLATFORM_PASSWORD=pfsecret
 
-RUN apk update
-RUN apk add --no-cache openssl=3.1.6-r0
-RUN apk add --no-cache logback-core=1.2.13 logback-classic=1.2.13
-RUN apk add --no-cache spring-web=5.3.34
+# Actualiza el índice de los paquetes y luego actualiza todos los paquetes instalados
+RUN apk update && apk upgrade --no-cache
 
 # add certificate
 #COPY certificates/ /cert
