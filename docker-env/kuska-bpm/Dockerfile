@@ -1,4 +1,4 @@
-FROM bonita
+FROM bonita:latest
 
 ENV DB_VENDOR=postgres
 ENV DB_HOST=postgres
@@ -13,6 +13,11 @@ ENV TENANT_LOGIN=tech_user
 ENV TENANT_PASSWORD=secret
 ENV PLATFORM_LOGIN=pfadmin
 ENV PLATFORM_PASSWORD=pfsecret
+
+RUN apk update
+RUN apk add --no-cache openssl=3.1.6-r0
+RUN apk add --no-cache logback-core=1.2.13 logback-classic=1.2.13
+RUN apk add --no-cache spring-web=5.3.34
 
 # add certificate
 #COPY certificates/ /cert
