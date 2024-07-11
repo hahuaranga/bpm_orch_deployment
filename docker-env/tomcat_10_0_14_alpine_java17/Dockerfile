@@ -1,6 +1,10 @@
 # Usar una imagen base de Alpine
 FROM alpine:latest
 
+LABEL maintainer="Hector Huaranga <hect.ahs@gmail.com>"
+LABEL description="This example Dockerfile installs Tomcat 10.1.25 java 17 with enabled APR for SSL support."
+MAINTAINER Hector Huaranga <hect.ahs@gmail.com>
+
 # Instalar dependencias necesarias
 RUN apk add --no-cache openjdk17-jdk wget tar
 
