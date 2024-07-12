@@ -22,7 +22,7 @@ ENV PLATFORM_PASSWORD=pfsecret
 RUN apk update && apk upgrade --no-cache
 
 ENV BONITA_HOME=/opt/bonita
-SETUP_DIR="$BONITA_HOME/setup"
+ENV SETUP_DIR="$BONITA_HOME/setup"
 
 RUN rm $BONITA_HOME/server/lib/bonita/h2-1.4.199.jar
 RUN rm $SETUP_DIR/lib/h2-1.4.199.jar
