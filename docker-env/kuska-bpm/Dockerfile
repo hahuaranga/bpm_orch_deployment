@@ -34,7 +34,7 @@ COPY lib/h2-2.2.220.jar $BONITA_HOME/server/lib/bonita/h2-2.2.220.jar
 COPY lib/h2-2.2.220.jar $SETUP_DIR/lib/h2-2.2.220.jar
 COPY lib/postgresql-42.4.4.jar $SETUP_DIR/lib/postgresql-42.4.4.jar
 COPY lib/spring-web-6.0.19.jar $BONITA_HOME/server/webapps/bonita/WEB-INF/lib/spring-web-6.0.19.jar
-COPY lib/quartz-2.3.2.jar /opt/bonita/server/webapps/bonita/WEB-INF/lib/quartz-2.3.2.jar
+COPY lib/quartz-2.4.0-rc1.jar /opt/bonita/server/webapps/bonita/WEB-INF/lib/quartz-2.4.0-rc1.jar
 
 # end patch for vulnerabilities
 
