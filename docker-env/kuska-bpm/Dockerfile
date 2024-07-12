@@ -30,11 +30,27 @@ RUN rm $SETUP_DIR/lib/postgresql-42.4.3.jar
 RUN rm $BONITA_HOME/server/webapps/bonita/WEB-INF/lib/spring-web-5.3.27.jar
 RUN rm $BONITA_HOME/server/webapps/bonita/WEB-INF/lib/quartz-2.3.2.jar
 
+RUN rm $BONITA_HOME/server/lib/bonita/tomcat-embed-core-9.0.81.jar
+RUN rm $BONITA_HOME/server/lib/tomcat-coyote.jar
+RUN rm $SETUP_DIR/lib/logback-core-1.2.12.jar
+RUN rm $SETUP_DIR/lib/logback-classic-1.2.12.jar
+RUN rm $BONITA_HOME/server/lib/tomcat-util.jar
+RUN rm $BONITA_HOME/server/webapps/bonita/WEB-INF/lib/snakeyaml-1.32.jar
+RUN rm $SETUP_DIR/lib/snakeyaml-1.32.jar
+
 COPY lib/h2-2.2.220.jar $BONITA_HOME/server/lib/bonita/h2-2.2.220.jar
 COPY lib/h2-2.2.220.jar $SETUP_DIR/lib/h2-2.2.220.jar
 COPY lib/postgresql-42.4.4.jar $SETUP_DIR/lib/postgresql-42.4.4.jar
 COPY lib/spring-web-6.0.19.jar $BONITA_HOME/server/webapps/bonita/WEB-INF/lib/spring-web-6.0.19.jar
 COPY lib/quartz-2.4.0-rc1.jar /opt/bonita/server/webapps/bonita/WEB-INF/lib/quartz-2.4.0-rc1.jar
+
+COPY lib/tomcat-embed-core-9.0.90.jar $BONITA_HOME/server/lib/bonita/tomcat-embed-core-9.0.90.jar
+COPY lib/tomcat-coyote-9.0.90.jar $BONITA_HOME/server/lib/tomcat-coyote-9.0.90.jar
+COPY lib/logback-core-1.2.13.jar $SETUP_DIR/lib/logback-core-1.2.13.jar
+COPY lib/logback-classic-1.2.13.jar $SETUP_DIR/lib/logback-classic-1.2.13.jar
+COPY lib/tomcat-util-9.0.90.jar $BONITA_HOME/server/lib/tomcat-util-9.0.90.jar
+COPY lib/snakeyaml-2.0.jar $BONITA_HOME/server/webapps/bonita/WEB-INF/lib/snakeyaml-2.0.jar
+COPY lib/snakeyaml-2.0.jar $SETUP_DIR/lib/snakeyaml-2.0.jar
 # end patch for vulnerabilities
 
 # Copy the startup script into the container
