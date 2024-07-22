@@ -23,8 +23,20 @@ RUN apk update && apk upgrade --no-cache
 # Set necessary environment variables
 ENV BONITA_HOME=/opt/bonita
 
-# Custom configurations for enable CORS
+# Custom configurations
 COPY tomcat/web.xml $BONITA_HOME/server/webapps/bonita/WEB-INF/web.xml
+
+# Copy the configuration script into the container
+COPY config-bonita.sh /config-bonita.sh
+
+# Fix Dos2Unix
+RUN /bin/sed -i 's/\r$//' /config-bonita.sh
+
+# Make the script executable
+RUN chmod +x /config-bonita.sh
+
+# Run the configuration script
+#RUN /config-bonita.sh
 
 # Copy the startup script into the container
 COPY wait-for-postgres.sh /usr/local/bin/wait-for-postgres.sh
