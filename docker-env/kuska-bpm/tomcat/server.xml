@@ -71,10 +71,13 @@
     -->
         <Connector port="8080" protocol="HTTP/1.1"
                    connectionTimeout="20000"
-                   maxThreads="20"
+                   maxThreads="200"
                    redirectPort="8443"
                    maxPostSize="-1"
-                   URIEncoding="UTF-8" />
+                   URIEncoding="UTF-8" 
+                   maxConnections="2000" 
+                   compression="on"
+           		   noCompressionUserAgents="gozilla, traviata" />
     <!-- A "Connector" using the shared thread pool-->
     <!--
     <Connector executor="tomcatThreadPool"
@@ -99,22 +102,6 @@
         </SSLHostConfig>
     </Connector>
     -->
-
-<!-- Start TeamNet Custom Configuration -->
-<Connector port="8443"
-    protocol="HTTP/1.1"
-    SSLEnabled="true"
-    maxThreads="150"
-    scheme="https"
-    secure="true"
-    URIEncoding="UTF-8"
-    SSLCertificateFile="${catalina.base}/conf/ssl/test.bonitasoft.net.pem"
-    SSLCertificateKeyFile="${catalina.base}/conf/ssl/test.bonitasoft.net.key"
-    SSLVerifyClient="optional"
-    SSLProtocol="TLSv1.2">
-</Connector>
-<!-- End TeamNet Custom Configuration -->
-
     <!-- Define a SSL/TLS HTTP/1.1 Connector on port 8443 with HTTP/2
          This connector uses the APR/native implementation which always uses
          OpenSSL for TLS.
