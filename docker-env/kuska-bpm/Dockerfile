@@ -25,7 +25,7 @@ ENV BONITA_HOME=/opt/bonita
 
 # Custom configurations (Ej. for enable CORS)
 #COPY tomcat/web.xml $BONITA_HOME/server/webapps/bonita/WEB-INF/web.xml
-#COPY tomcat/server.xml $BONITA_HOME/server/conf/server.xml
+COPY tomcat/server.xml $BONITA_HOME/server/conf/server.xml
 
 # Copy the startup script into the container
 COPY wait-for-postgres.sh /usr/local/bin/wait-for-postgres.sh
