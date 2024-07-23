@@ -44,6 +44,10 @@
 			<param-value>Content-Type,X-Requested-With,accept,Origin,Access-Control-Request-Method,Access-Control-Request-Headers,X-Bonita-API-Token</param-value>
 		</init-param>
 	</filter>
+	<filter-mapping>
+		<filter-name>CorsFilter</filter-name>
+		<url-pattern>/*</url-pattern>
+	</filter-mapping>	
 	
 	<!-- No Cache Filter -->
 	<filter>
@@ -195,10 +199,6 @@
 			<param-value>slf4j</param-value>
 		</init-param>
 	</filter>
-	<filter-mapping>
-		<filter-name>CorsFilter</filter-name>
-		<url-pattern>/*</url-pattern>
-	</filter-mapping>	
 	<filter-mapping>
 		<filter-name>NoCacheFilter</filter-name>
 		<url-pattern>/portal/formsDocumentDownload</url-pattern>
