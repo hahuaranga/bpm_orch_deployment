@@ -23,6 +23,9 @@ RUN apk update && apk upgrade --no-cache
 # Set necessary environment variables
 ENV BONITA_HOME=/opt/bonita
 
+# Copy external libs
+COPY lib/ $BONITA_HOME/server/lib
+
 # Custom configurations (Ej. for enable CORS)
 #COPY tomcat/web.xml $BONITA_HOME/server/webapps/bonita/WEB-INF/web.xml
 COPY tomcat/server.xml $BONITA_HOME/server/conf/server.xml
