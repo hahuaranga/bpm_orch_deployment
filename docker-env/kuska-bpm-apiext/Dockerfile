@@ -1,4 +1,4 @@
-FROM hhuaranga/tomcat:10.1.25-Alpine-java17
+FROM hhuaranga/tomcat:10.1.26-Alpine-java11
 
 ENV JAVA_OPTS="-Djavax.xml.xpath.XPathFactory:http://java.sun.com/jaxp/xpath/dom=net.sf.saxon.xpath.XPathFactoryImpl" \
 	CATALINA_OPTS="-Xmx512m -Dspring.config.location=classpath:/application.properties,/opt/kuska/cfg/application.properties -Dlogging.config=/opt/kuska/cfg/logback-spring.xml" \
