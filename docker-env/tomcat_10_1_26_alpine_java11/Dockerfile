@@ -2,16 +2,16 @@
 FROM alpine:latest
 
 LABEL maintainer="Hector Huaranga <hect.ahs@gmail.com>"
-LABEL description="This example Dockerfile installs Tomcat 10.1.25 java 17 with enabled APR for SSL support."
+LABEL description="This example Dockerfile installs Tomcat 10.1.26 java 11 with enabled APR for SSL support."
 MAINTAINER Hector Huaranga <hect.ahs@gmail.com>
 
 # Instalar dependencias necesarias
-RUN apk add --no-cache openjdk17-jdk wget tar
+RUN apk add --no-cache openjdk11-jdk wget tar
 
 # Descargar y extraer Tomcat
-RUN wget https://dlcdn.apache.org/tomcat/tomcat-10/v10.1.25/bin/apache-tomcat-10.1.25.tar.gz \
-    && tar -xvf apache-tomcat-10.1.25.tar.gz \
-    && mv apache-tomcat-10.1.25 /usr/local/tomcat
+RUN wget https://dlcdn.apache.org/tomcat/tomcat-10/v10.1.26/bin/apache-tomcat-10.1.26.tar.gz \
+    && tar -xvf apache-tomcat-10.1.26.tar.gz \
+    && mv apache-tomcat-10.1.26 /usr/local/tomcat
 
 # Configurar variables de entorno
 ENV CATALINA_HOME /usr/local/tomcat
@@ -32,7 +32,7 @@ RUN apk update && apk add --no-cache \
     tar
     
 # Establecer JAVA_HOME
-ENV JAVA_HOME /usr/lib/jvm/java-17-openjdk
+ENV JAVA_HOME /usr/lib/jvm/java-11-openjdk
 ENV PATH $JAVA_HOME/bin:$PATH    
     
 # Extraer y compilar libtcnative-1
