@@ -9,7 +9,7 @@ MAINTAINER Hector Huaranga <hect.ahs@gmail.com>
 RUN apk add --no-cache openjdk11-jdk wget tar
 
 # Descargar y extraer Tomcat
-RUN wget https://dlcdn.apache.org/tomcat/tomcat-10/v9.0.91/bin/apache-tomcat-9.0.91.tar.gz \
+RUN wget https://dlcdn.apache.org/tomcat/tomcat-9/v9.0.91/bin/apache-tomcat-9.0.91.tar.gz \
     && tar -xvf apache-tomcat-9.0.91.tar.gz \
     && mv apache-tomcat-9.0.91 /usr/local/tomcat
 
