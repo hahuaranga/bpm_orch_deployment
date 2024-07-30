@@ -2,16 +2,16 @@
 FROM alpine:latest
 
 LABEL maintainer="Hector Huaranga <hect.ahs@gmail.com>"
-LABEL description="This example Dockerfile installs Tomcat 10.1.26 java 11 with enabled APR for SSL support."
+LABEL description="This example Dockerfile installs Tomcat 9.0.91 java 11 with enabled APR for SSL support."
 MAINTAINER Hector Huaranga <hect.ahs@gmail.com>
 
 # Instalar dependencias necesarias
 RUN apk add --no-cache openjdk11-jdk wget tar
 
 # Descargar y extraer Tomcat
-RUN wget https://dlcdn.apache.org/tomcat/tomcat-10/v10.1.26/bin/apache-tomcat-10.1.26.tar.gz \
-    && tar -xvf apache-tomcat-10.1.26.tar.gz \
-    && mv apache-tomcat-10.1.26 /usr/local/tomcat
+RUN wget https://dlcdn.apache.org/tomcat/tomcat-10/v9.0.91/bin/apache-tomcat-9.0.91.tar.gz \
+    && tar -xvf apache-tomcat-9.0.91.tar.gz \
+    && mv apache-tomcat-9.0.91 /usr/local/tomcat
 
 # Configurar variables de entorno
 ENV CATALINA_HOME /usr/local/tomcat
