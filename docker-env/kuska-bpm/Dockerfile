@@ -25,7 +25,7 @@ ENV BONITA_HOME=/opt/bonita
 
 # Copy external libs
 COPY lib/ $BONITA_HOME/server/lib/bonita
-RUN chown -R bonita:bonita $BONITA_HOME/server/lib/bonita/common.jar && chmod -R 664 $BONITA_HOME/server/lib/bonita/common.jar
+RUN chown -R bonita:bonita $BONITA_HOME/server/lib/bonita/*.jar && chmod -R 664 $BONITA_HOME/server/lib/bonita/*.jar
 
 # Custom configurations (Ej. for enable CORS)
 #COPY tomcat/web.xml $BONITA_HOME/server/webapps/bonita/WEB-INF/web.xml
