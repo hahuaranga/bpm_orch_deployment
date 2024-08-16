@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project name="maven-antrun-" default="main">
   <target name="main">
-    <copy file="C:\WORKSPACES\workspace_eclipse_new_latest\bpm_orch_parent\simulators\tmf_622_api_sim\target\tmf_622_api_sim.war" todir="C:\WORKSPACES\workspace_eclipse_new_latest\bpm_orch_deployment/docker-env/kuska-sim/deployments" />
+    <copy file="C:\WORKSPACES\workspace_eclipse_new_latest\bpm_orch_parent\simulators\tmf_oas_sim\target\tmf_oas_sim.war" todir="C:\WORKSPACES\workspace_eclipse_new_latest\bpm_orch_deployment/docker-env/kuska-sim/deployments" />
   </target>
 </project>

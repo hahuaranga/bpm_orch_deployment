@@ -9,8 +9,7 @@
   	<properties>
 		<bpm_orch_parent>C:\WORKSPACES\workspace_eclipse_new_latest\bpm_orch_parent</bpm_orch_parent>
 		<extended_api_war>${bpm_orch_parent}\extended_api\target\extended_api.war</extended_api_war>
-		<tmf_622_api_sim_war>${bpm_orch_parent}\simulators\tmf_622_api_sim\target\tmf_622_api_sim.war</tmf_622_api_sim_war>
-		<tmf_622_async_api_sim_war>${bpm_orch_parent}\simulators\tmf_622_async_api_sim\target\tmf_622_async_api_sim.war</tmf_622_async_api_sim_war>
+		<tmf_oas_sim_war>${bpm_orch_parent}\simulators\tmf_oas_sim\target\tmf_oas_sim.war</tmf_oas_sim_war>
 	</properties>
 	
 	<build>
@@ -46,14 +45,14 @@
 
 					<!-- KUSKA_SIM -->
 					<execution>
-						<id>cp-tmf_622_api_sim_war</id>
+						<id>cp-tmf_oas_sim_war</id>
 						<phase>package</phase>
 						<goals>
 							<goal>run</goal>
 						</goals>
 						<configuration>
 							<target>
-								<copy file="${tmf_622_api_sim_war}"
+								<copy file="${tmf_oas_sim_war}"
 									todir="${basedir}/docker-env/kuska-sim/deployments" />
 							</target>
 						</configuration>
