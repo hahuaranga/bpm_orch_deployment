@@ -57,21 +57,7 @@
 									todir="${basedir}/docker-env/kuska-sim/deployments" />
 							</target>
 						</configuration>
-					</execution>
-					
-					<execution>
-						<id>cp-tmf_622_async_api_sim_war</id>
-						<phase>package</phase>
-						<goals>
-							<goal>run</goal>
-						</goals>
-						<configuration>
-							<target>
-								<copy file="${tmf_622_async_api_sim_war}"
-									todir="${basedir}/docker-env/kuska-sim/deployments" />
-							</target>
-						</configuration>
-					</execution>					
+					</execution>				
 					
 				</executions>
 
