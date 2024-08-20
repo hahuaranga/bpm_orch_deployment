@@ -7,10 +7,10 @@
   <name>bpm_orch_deployment</name>
   
   	<properties>
-		<bpm_orch_parent>C:\WORKSPACES\workspace_eclipse_new_latest\bpm_orch_parent</bpm_orch_parent>
-		<extended_api_war>${bpm_orch_parent}\extended_api\target\extended_api.war</extended_api_war>
-		<tmf_oas_sim_war>${bpm_orch_parent}\simulators\tmf_oas_sim\target\tmf_oas_sim.war</tmf_oas_sim_war>
-		<icone_api_sim_war>${bpm_orch_parent}\simulators\icone_api_sim\target\icone_api_sim.war</icone_api_sim_war>
+		<bpm_orch_api_parent>C:\WORKSPACES\workspace_eclipse_new_latest\bpm_orch_api_parent</bpm_orch_api_parent>
+		<extended_api_war>${bpm_orch_api_parent}\extended_api\target\extended_api.war</extended_api_war>
+		<tmf_oas_sim_war>${bpm_orch_api_parent}\simulators\tmf_oas_sim\target\tmf_oas_sim.war</tmf_oas_sim_war>
+		<icone_api_sim_war>${bpm_orch_api_parent}\simulators\icone_api_sim\target\icone_api_sim.war</icone_api_sim_war>
 	</properties>
 	
 	<build>
@@ -99,7 +99,7 @@
 	</build>  
   
 	<modules>
-		<module>../bpm_orch_parent</module>
+		<module>../bpm_orch_api_parent</module>
 	</modules>
 
 </project>
